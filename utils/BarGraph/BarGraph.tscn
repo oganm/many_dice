@@ -12,11 +12,11 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-bar_color = Color( 0.168627, 0.027451, 0.027451, 1 )
+value = 0.47
 
 [node name="Label" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-margin_right = 45.0
+margin_right = 39.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -24,16 +24,24 @@ text = "Label"
 align = 1
 valign = 1
 
+[node name="Label2" type="Label" parent="."]
+margin_left = 43.0
+margin_top = 18.0
+margin_right = 83.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
 [node name="Bar" type="TextureProgress" parent="."]
-modulate = Color( 0.235294, 0.0823529, 0.0823529, 1 )
-margin_left = 49.0
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 87.0
 margin_right = 487.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 9.73
+size_flags_stretch_ratio = 10.0
 max_value = 1.0
 step = 0.001
-value = 1.0
+value = 0.47
 texture_progress = ExtResource( 2 )
 nine_patch_stretch = true

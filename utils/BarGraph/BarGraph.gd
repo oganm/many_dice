@@ -5,7 +5,7 @@ export var value = 0.0
 export var label = "Label"
 export var bar_color = Color.black
 export var label_color = Color.black
-
+export var label2 = ""
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -18,7 +18,6 @@ func _ready():
 
 func _process(_delta):
 	if Engine.editor_hint:
-		print('hodo')
 		set_value(value)
 		set_label(label)
 		set_bar_color(bar_color)
@@ -33,10 +32,13 @@ func set_value(x):
 	value = $Bar.value
 
 func set_label(x):
-	get_node("Label").text = x
+	get_node("Label").text = String(x)
 
 func set_bar_color(x):
 	$Bar.modulate = x
 
 func set_label_color(x):
 	$Label.modulate = x
+
+func set_label2(x):
+	get_node("Label2").text = String(x)

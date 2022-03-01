@@ -56,4 +56,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
+[node name="Bars" type="ScrollContainer" parent="VBoxContainer/Output"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="BarContainer" type="VBoxContainer" parent="VBoxContainer/Output/Bars"]
+margin_right = 1016.0
+margin_bottom = 461.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Calculate" to="." method="_on_Calculate_pressed"]
