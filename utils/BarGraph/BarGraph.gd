@@ -6,6 +6,7 @@ export var label = "Label"
 export var bar_color = Color.black
 export var label_color = Color.black
 export var label2 = ""
+export var label2_color = Color.black
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -22,6 +23,7 @@ func _process(_delta):
 		set_label(label)
 		set_bar_color(bar_color)
 		set_label_color(label_color)
+		set_label2_color(label2_color)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -42,3 +44,6 @@ func set_label_color(x):
 
 func set_label2(x):
 	get_node("Label2").text = String(x)
+
+func set_label2_color(x):
+	$Label2.modulate = x
