@@ -1,7 +1,7 @@
 # many dice
 
 This is a dollar store version of any dice with less features and only supporting
-a limited syntax. It is based on my godot [dice_syntax](https://github.com/oganm/dice_syntax_gd) addon and calculates
+a limited syntax. It is based on my godot [dice_syntax](https://github.com/oganm/dice_syntax_gd) addon and
 returns probabilities based on that format alone.
 
 ## Supported Syntax
