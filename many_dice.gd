@@ -1,29 +1,30 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 
 var bar_graph = preload('utils/BarGraph/BarGraph.tscn')
+onready var bars = get_node("VBoxContainer/Output/Output/Bars")
+onready var dice = get_node("VBoxContainer/HBoxContainer/Dice")
+onready var explode_depth = get_node('VBoxContainer/HBoxContainer/VBoxContainer/ExplodeDepth')
+onready var mean = get_node("VBoxContainer/Output/Output/Mean")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 #func _process(delta):
 #	pass
 
 
 
 func _on_Calculate_pressed():
-	print($VBoxContainer/HBoxContainer/Dice.text)
-	print(dice_syntax.dice_probs($VBoxContainer/HBoxContainer/Dice.text,3))
-	var depth = $VBoxContainer/HBoxContainer/VBoxContainer/ExplodeDepth.value
-	var output = dice_syntax.dice_probs($VBoxContainer/HBoxContainer/Dice.text,depth)
-	var old_bars = $VBoxContainer/Output/Bars/BarContainer.get_children()
+	var depth = explode_depth.value
+	var output = dice_syntax.dice_probs(dice.text,depth)
+	var expected = dice_syntax.expected_value(output)
+	var old_bars = bars.get_node('BarContainer').get_children()
+	mean.text = 'Mean: '+str(expected)
 	for x in old_bars:
 		x.queue_free()
 	
@@ -37,7 +38,7 @@ func _on_Calculate_pressed():
 	header.set_bar_color('e0e0e0')
 	header.set_label_color('e0e0e0')
 	header.set_label2_color('e0e0e0')
-	$VBoxContainer/Output/Bars/BarContainer.add_child(header)
+	bars.get_node('BarContainer').add_child(header)
 	
 	for i in keys:
 		var bar = bar_graph.instance()
@@ -47,4 +48,8 @@ func _on_Calculate_pressed():
 		bar.set_bar_color('e0e0e0')
 		bar.set_label_color('e0e0e0')
 		bar.set_label2_color('e0e0e0')
-		$VBoxContainer/Output/Bars/BarContainer.add_child(bar)
+		bars.get_node('BarContainer').add_child(bar)
+
+
+func _on_Dice_text_entered(new_text):
+	_on_Calculate_pressed()
