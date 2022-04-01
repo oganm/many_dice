@@ -124,9 +124,10 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
-margin_right = -980.0
-margin_bottom = -425.0
+margin_top = 37.0
+margin_right = -4.0
+margin_bottom = -4.0
+focus_mode = 2
 custom_fonts/bold_font = ExtResource( 3 )
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
@@ -148,7 +149,7 @@ bbcode_text = "[b]4d6[/b]: roll 4 six sided dice
 [b]4d6!>5[/b]: roll 4d6 explode 5s and 6s"
 text = "4d6: roll 4 six sided dice
 4d6s: roll 4d6 sort the results
-4d6+3d3: roll 4d6 and 3d3, sum the results
+4d6+2d5/2:  perform arbitrary mathematical operations
 4d6-3d3: Same as above, subtract 3d3 from 4d6.
 4d6+1: roll 4d6 add 1 to the result
 4d6d1: roll 4d6, drop the lowest one
@@ -162,6 +163,7 @@ text = "4d6: roll 4 six sided dice
 4d6!: roll 4d6 explode 6s (for every six, roll again until a non six is rolled, add them to the rolls. The output will have variable number of dice)
 4d6!!: roll 4d6 compound 6s (for every six, roll again until a non six is rolled, combined them into a single roll in the output. The output will have 4 dice)
 4d6!>5: roll 4d6 explode 5s and 6s"
+selection_enabled = true
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Calculate" to="." method="_on_Calculate_pressed"]
 [connection signal="text_entered" from="VBoxContainer/HBoxContainer/Dice" to="." method="_on_Dice_text_entered"]
