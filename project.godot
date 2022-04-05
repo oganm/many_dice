@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "dice_syntax",
 "language": "GDScript",
 "path": "res://addons/dice_syntax/dice_syntax.gd"
+}, {
+"base": "Resource",
+"class": "dice_syntax_parsed_dice",
+"language": "GDScript",
+"path": "res://addons/dice_syntax/parsed_dice.gd"
+}, {
+"base": "Resource",
+"class": "dice_syntax_rolling_rules",
+"language": "GDScript",
+"path": "res://addons/dice_syntax/rolling_rules.gd"
 } ]
 _global_script_class_icons={
-"dice_syntax": ""
+"dice_syntax": "",
+"dice_syntax_parsed_dice": "",
+"dice_syntax_rolling_rules": ""
 }
 
 [application]
