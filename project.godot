@@ -17,7 +17,7 @@ config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dice_syntax/plugin.cfg")
+enabled=PackedStringArray("res://addons/coi_serviceworker/plugin.cfg", "res://addons/dice_syntax/plugin.cfg")
 
 [physics]
 
