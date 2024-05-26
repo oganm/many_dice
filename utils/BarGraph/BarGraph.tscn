@@ -1,50 +1,40 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://dtd22dtvaefja"]
 
-[ext_resource path="res://utils/BarGraph/BarGraph.gd" type="Script" id=1]
-[ext_resource path="res://utils/BarGraph/white.png" type="Texture2D" id=2]
+[ext_resource type="Script" path="res://utils/BarGraph/BarGraph.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ch43vn408cjit" path="res://utils/BarGraph/white.png" id="2"]
 
 [node name="BarGraph" type="HBoxContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -537.0
 offset_bottom = -549.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+size_flags_stretch_ratio = 0.5
+script = ExtResource("1")
 value = 0.47
 
 [node name="Label" type="Label" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-offset_right = 34.0
-offset_bottom = 51.0
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 text = "Label"
-align = 1
-valign = 1
 
 [node name="Label2" type="Label" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-offset_left = 38.0
-offset_top = 18.0
-offset_right = 57.0
-offset_bottom = 32.0
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
-size_flags_stretch_ratio = 0.5
 
 [node name="Bar" type="TextureProgressBar" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-offset_left = 61.0
-offset_right = 487.0
-offset_bottom = 51.0
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 11.0
 max_value = 1.0
 step = 0.001
 value = 0.47
-texture_progress = ExtResource( 2 )
 nine_patch_stretch = true
+texture_progress = ExtResource("2")
