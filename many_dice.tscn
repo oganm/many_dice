@@ -1,15 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7qfcvq0ugp3s"]
+[gd_scene load_steps=6 format=3 uid="uid://b7qfcvq0ugp3s"]
 
 [ext_resource type="Script" path="res://many_dice.gd" id="1"]
 [ext_resource type="FontFile" path="res://utils/Fonts/roboto_regular.tres" id="2"]
 [ext_resource type="FontFile" path="res://utils/Fonts/roboto_bold.tres" id="3"]
 [ext_resource type="Theme" path="res://utils/theme.tres" id="4"]
 
+[sub_resource type="Theme" id="Theme_unoio"]
+default_font_size = 21
+
 [node name="ManyDice" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource("Theme_unoio")
 script = ExtResource("1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -91,11 +95,16 @@ theme_override_fonts/bold_font = ExtResource("3")
 bbcode_enabled = true
 text = "4d6: roll 4 six sided dice
 4d6s: roll 4d6 sort the results
-4d6+2d5/2:  perform arbitrary mathematical operations
+4d6s>5: roll 4d6s return the number of 5s and 6s (\"s\" means success in this context)
+4d6s>5f1: roll 4d6s count all 5s and 6s, substract the number of 1s
+4d6+2d5/2: perform arbitrary mathematical operations. The statements are turned into Expressions so everything supported by them will work fine. Note that the result will be the data type returned by execution of the expression. Often a float.
 4d6d1: roll 4d6, drop the lowest one
 4d6dh1: roll 4d6, drop the highest one
 4d6k1: roll 4d6, keep the highest one
 4d6kl1: roll 4d6, keep the lowest one
+4d6d=1: roll 4d6s drop all 1s
+4d6k>5: roll 4d6s keep only 5s and 6s
+4d6d<2: roll 4d6s drop all 1s and 2s
 4d6r1: roll 4d6 reroll all 1s (1 is not a possible result)
 4d6ro1: roll 4d6 reroll 1s once
 4d6r<2: roll 4d6 reroll all 1s and 2s (not possible results)
