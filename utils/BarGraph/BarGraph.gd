@@ -1,12 +1,12 @@
-tool
+@tool
 extends HBoxContainer
 
-export var value = 0.0
-export var label = "Label"
-export var bar_color = Color.black
-export var label_color = Color.black
-export var label2 = ""
-export var label2_color = Color.black
+@export var value = 0.0
+@export var label = "Label"
+@export var bar_color = Color.BLACK
+@export var label_color = Color.BLACK
+@export var label2 = ""
+@export var label2_color = Color.BLACK
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -18,7 +18,7 @@ func _ready():
 	pass
 
 func _process(_delta):
-	if Engine.editor_hint:
+	if Engine.is_editor_hint():
 		set_value(value)
 		set_label(label)
 		set_bar_color(bar_color)
@@ -34,7 +34,7 @@ func set_value(x):
 	value = $Bar.value
 
 func set_label(x):
-	get_node("Label").text = String(x)
+	get_node("Label").text = str(x)
 
 func set_bar_color(x):
 	$Bar.modulate = x
@@ -43,7 +43,7 @@ func set_label_color(x):
 	$Label.modulate = x
 
 func set_label2(x):
-	get_node("Label2").text = String(x)
+	get_node("Label2").text = str(x)
 
 func set_label2_color(x):
 	$Label2.modulate = x

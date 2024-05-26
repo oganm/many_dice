@@ -16,7 +16,7 @@ static func base_convert(number:int,base:int)->Array:
 			if result != 0:
 				digits.append(result)
 			break
-	digits.invert()
+	digits.reverse()
 	return digits	
 
 # convert integer inter to base 26 and return as letters for use as names in expressions
@@ -103,19 +103,19 @@ static func dice_error(condition:bool,message:String,rolling_rules:Dictionary):
 		rolling_rules['msg'].append(message)
 
 
-static func range_determine(token:String,dice_side:int, default:int = 1)->Array:
+static func range_determine(token:String,dice_side:int,regex:RegEx = RegEx.new(),rolling_rules:Dictionary={} ,default:int = 1)-> PackedInt64Array:
 	var sm = preload('string_manip.gd')
-	var out:Array = []
-	var number = sm.str_extract(token, '[0-9]*$')
-	# dice_error(!(sm.str_detect(token,'<|>') and number ==''),'Malformed dice string: Using  "<" or ">" identifiers requires an integer',rolling_rules)
-	# dice_error(!(sm.str_detect(token,'<') and sm.str_detect(token,'>')),'Malformed dice string: A range clause can only have one of "<" or ">"',rolling_rules)
-	if !sm.str_detect('<|>',token) and number == '':
+	var out:PackedInt64Array = []
+	var number = sm.str_extract(token,'[0-9]*$', regex)
+	dice_error(!(sm.str_detect(token,'<',regex) and sm.str_detect(token,">",regex)),'Invalid dice: A range clause can only have one of "<" or ">"',rolling_rules)
+	dice_error(!(sm.str_detect(token,'<|>|=',regex) and number ==''),'Invalid dice: Using  "<", ">" or "=" operators requires an integer',rolling_rules)
+	if !sm.str_detect(token,"<|>",regex) and number == '':
 		out.append(default)
-	elif number != '' and !sm.str_detect(token, '<|>'):
-		out.append(int(number))
-	elif sm.str_detect(token, '<') and number != '':
-		out.append_array(range(1,int(number)+1))
-	elif sm.str_detect(token, '>') and number != '':
-		out.append_array(range(int(number),dice_side+1))
+	elif number != '' and !sm.str_detect_rg(token, regex):
+		out.append(number.to_int())
+	elif sm.str_detect(token,"<" ,regex) and number != '':
+		out.append_array(range(1,number.to_int()+1))
+	elif sm.str_detect(token,">", regex) and number != '':
+		out.append_array(range(number.to_int(),dice_side+1))
 	
 	return out

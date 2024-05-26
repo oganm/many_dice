@@ -4,11 +4,11 @@ extends Control
 
 var rng = RandomNumberGenerator.new()
 var bar_graph = preload('utils/BarGraph/BarGraph.tscn')
-onready var bars = get_node("VBoxContainer/Output/Output/Bars")
-onready var dice = get_node("VBoxContainer/HBoxContainer/Dice")
-onready var explode_depth = get_node('VBoxContainer/HBoxContainer/VBoxContainer/ExplodeDepth')
-onready var mean = get_node("VBoxContainer/Output/Output/Mean")
-onready var sample_output = get_node("VBoxContainer/Output/Output/Sample_Out")
+@onready var bars = get_node("VBoxContainer/Output/Output/Bars")
+@onready var dice = get_node("VBoxContainer/HBoxContainer/Dice")
+@onready var explode_depth = get_node('VBoxContainer/HBoxContainer/VBoxContainer/ExplodeDepth')
+@onready var mean = get_node("VBoxContainer/Output/Output/Mean")
+@onready var sample_output = get_node("VBoxContainer/Output/Output/Sample_Out")
 
 func _ready():
 	rng.randomize()
@@ -44,7 +44,7 @@ func _on_Calculate_pressed():
 	var keys = output.keys()
 	keys.sort()
 	
-	var header = bar_graph.instance()
+	var header = bar_graph.instantiate()
 	header.set_value(0)
 	header.set_label('#')
 	header.set_label2('%')
@@ -54,7 +54,7 @@ func _on_Calculate_pressed():
 	bars.get_node('BarContainer').add_child(header)
 	
 	for i in keys:
-		var bar = bar_graph.instance()
+		var bar = bar_graph.instantiate()
 		bar.set_value(output[i])
 		bar.set_label(i)
 		bar.set_label2(round(output[i]*10000)/100)

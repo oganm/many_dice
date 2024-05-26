@@ -6,44 +6,19 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "GDScript",
-"class": "dice_syntax",
-"language": "GDScript",
-"path": "res://addons/dice_syntax/dice_syntax.gd"
-}, {
-"base": "Resource",
-"class": "dice_syntax_parsed_dice",
-"language": "GDScript",
-"path": "res://addons/dice_syntax/parsed_dice.gd"
-}, {
-"base": "Resource",
-"class": "dice_syntax_rolling_rules",
-"language": "GDScript",
-"path": "res://addons/dice_syntax/rolling_rules.gd"
-} ]
-_global_script_class_icons={
-"dice_syntax": "",
-"dice_syntax_parsed_dice": "",
-"dice_syntax_rolling_rules": ""
-}
+config_version=5
 
 [application]
 
 config/name="many_dice"
 run/main_scene="res://many_dice.tscn"
+config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/dice_syntax/plugin.cfg" )
+enabled=PackedStringArray("res://addons/dice_syntax/plugin.cfg")
 
 [physics]
 
 common/enable_pause_aware_picking=true
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"

@@ -123,7 +123,7 @@ static func sample(array:Array,n:int,rng:RandomNumberGenerator, replace:bool = t
 		var samp = rng.randi_range(0,array.size()-1)
 		out.append(array[samp])
 		if not replace:
-			array.remove(samp)
+			array.remove_at(samp)
 		
 	
 	
@@ -157,6 +157,17 @@ static func sample_weights(array:Array, weights: Array, n:int, rng:RandomNumberG
 		while rand > weights[curr_index]:
 			curr_index += 1
 		out.append(array[curr_index])
+	
+	return out
+
+static func table(array:Array) -> Dictionary:
+	var out:Dictionary
+	
+	for x in array:
+		if x in out.keys():
+			out[x] = out[x]+1
+		else:
+			out[x] = 1
 	
 	return out
 
